@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="insurnace-service:war">
+    <output-path>$PROJECT_DIR$/insurance-service/target</output-path>
+    <root id="archive" name="wkb-insurance-service.war">
+      <element id="artifact" artifact-name="insurnace-service:war exploded" />
+    </root>
+  </artifact>
+</component>

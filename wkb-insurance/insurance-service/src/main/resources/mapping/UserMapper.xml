@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wkb.insurance.dao.mapper.UserMapper">
+
+<resultMap id="BaseResultMap" type="com.wkb.insurance.module.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+
+    <select id="findUserById"  resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select * from user where id = #{id}
+    </select>
+
+    <insert id="insertUser" parameterType="com.wkb.insurance.module.User">
+        insert into user(account, name) values(#{account},#{name})
+        <selectKey resultType="int" keyProperty="id" >
+            SELECT LAST_INSERT_ID();
+        </selectKey>
+    </insert>
+</mapper>
